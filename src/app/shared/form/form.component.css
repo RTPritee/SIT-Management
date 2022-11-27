@@ -1,0 +1,6 @@
+@import '~bootstrap/scss/bootstrap.scss';
+body { padding: 10px; }
+
+form .btn {
+  margin-right: 8px;
+}
