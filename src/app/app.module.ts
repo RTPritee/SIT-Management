@@ -10,13 +10,15 @@ import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboardComponents/dashboard/dashboard.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
+import { HomeComponent } from './dashboardComponents/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
     DashboardComponent,
-    NavigationComponent
+    NavigationComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
