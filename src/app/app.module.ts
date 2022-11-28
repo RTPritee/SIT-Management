@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboardComponents/dashboard/dashboard.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { HomeComponent } from './dashboardComponents/home/home.component';
+import { LoginComponent } from './shared/login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,15 +19,17 @@ import { HomeComponent } from './dashboardComponents/home/home.component';
     FormComponent,
     DashboardComponent,
     NavigationComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormlyBootstrapModule,
     FormlyModule.forRoot(),
-    FormlyBootstrapModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

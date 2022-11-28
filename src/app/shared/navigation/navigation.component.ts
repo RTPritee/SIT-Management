@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public auth: AuthService) { }
+  loginStatus: boolean = false; 
   ngOnInit(): void {
+    this.auth.isLoggedIn.subscribe((status) => {
+      this.loginStatus = status;
+    });
   }
+  login() {
+    this.auth.login();
+  }
+  logout() {
+    this.auth.logout();
+  } 
 
 }
