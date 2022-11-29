@@ -1,0 +1,73 @@
+<title>User List</title>
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="padding: 20px">
+      <div class="card-body">
+        <a href="#" class="btn btn-success btn-sm me-2" title="Add New">
+          <i class="fa fa-plus" aria-hidden="true"></i> Add New
+        </a>
+
+        <button class="btn btn-sm btn-warning" (click)="userInfobtn(name.value,job.value)">
+          UserInfo
+        </button>
+
+        <form action="searchUser" class="col-4" style="float: right">
+          <div class="form-group" style="float: left">
+            <input
+              type="search"
+              name="searchUser"
+              id=""
+              class="form-control"
+              placeholder="Search by name.."
+            />
+          </div>
+          &nbsp;&nbsp;&nbsp;<button class="btn btn-primary">Search</button>
+        </form>
+      </div>
+      <!-- <div class="card-header"> Users</div> -->
+    </div>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Login Id</th>
+            <th>Role</th>
+            <th>Created On</th>
+            <th>Updated On</th>
+            <th>Active Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Mr.Devid</td>
+            <td>1111</td>
+            <td>Admin</td>
+            <td>2022-02-03</td>
+            <td>2022-11-29</td>
+            <td>yes</td>
+            <td>
+              <a href="#">
+                <button class="btn btn-sm btn-info me-2">Edit</button>
+              </a>
+              <a href="#">
+                <button
+                  type="submit"
+                  class="btn btn-sm btn-danger"
+                  onclick="return confirm('Are you sure want to delete?')"
+                >
+                  Delete
+                </button>
+              </a>
+              <!--<button class = "btn btn-sm btn-danger">Delete</button> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

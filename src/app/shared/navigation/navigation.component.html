@@ -43,17 +43,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Profile</a>
           </li>
-          <li class="nav-item">
-            <a
-              class="nav-link active"
-              aria-current="page"
-              [routerLink]="['/form']"
-              >Form</a
-            >
-          </li>
           <li class="nav-item dropdown">
             <a
-              class="nav-link dropdown-toggle"
+              class="nav-link dropdown-toggle "
               href="#"
               role="button"
               data-bs-toggle="dropdown"
@@ -63,16 +55,25 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Role Management</a></li>
-              <li><a class="dropdown-item" href="#">User Management</a></li>
               <li>
-                <hr class="dropdown-divider" />
+                <a class="dropdown-item" [routerLink]="['/user-management']"
+                  >User Management</a
+                >
+              </li>
+              <li class="dropdown-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  [routerLink]="['/form']"
+                  >Form</a
+                >
               </li>
             </ul>
           </li>
           <li class="nav-item">
             <a
               *ngIf="!(auth.isLoggedIn | async)"
-              (click)="auth.login()"
+              (click)="login()"
               class="nav-link active"
               aria-current="page"
               [routerLink]="['/login']"
@@ -81,8 +82,8 @@
           </li>
           <li class="nav-item">
             <a
-              *ngIf="(auth.isLoggedIn | async)"
-              (click)="auth.logout()"
+              *ngIf="auth.isLoggedIn | async"
+              (click)="logout()"
               class="nav-link active"
               aria-current="page"
               [routerLink]="['/login']"

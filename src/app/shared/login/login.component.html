@@ -21,7 +21,21 @@
                   </i>
                 </span>
               </div>
-              <input class="form-control" name="username" type="text" />
+              <input
+                class="form-control"
+                name="username"
+                type="text"
+                #username
+                placeholder="user name"
+                required
+              />
+
+              <!-- <div
+                class="alert alert-danger d-flex align-items-center"
+                role="alert"
+              >
+                Username is required!
+              </div> -->
             </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -38,10 +52,20 @@
                   </i>
                 </span>
               </div>
-              <input class="form-control" name="username" type="password" />
+              <input
+                class="form-control"
+                name="username"
+                type="password"
+                placeholder="********"
+                required
+              />
             </div>
-            <button class="btn btn-primary px-4" (click)="login()">Login</button>
-           
+            <button
+              class="btn btn-primary px-4"
+              (click)="login(username.value, password.value)"
+            >
+              Login
+            </button>
           </form>
         </div>
       </div>

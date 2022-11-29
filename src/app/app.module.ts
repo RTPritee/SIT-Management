@@ -12,6 +12,8 @@ import { DashboardComponent } from './dashboardComponents/dashboard/dashboard.co
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { HomeComponent } from './dashboardComponents/home/home.component';
 import { LoginComponent } from './shared/login/login.component';
+import { UserManagementComponent } from './dashboardComponents/user-management/user-management.component';
+import { HomepageComponent } from './dumy/homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { LoginComponent } from './shared/login/login.component';
     DashboardComponent,
     NavigationComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    UserManagementComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

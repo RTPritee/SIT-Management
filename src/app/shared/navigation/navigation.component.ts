@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-navigation',
@@ -6,19 +8,27 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-
-  constructor(public auth: AuthService) { }
-  loginStatus: boolean = false; 
+  public isLoggedIn: BehaviorSubject<boolean>;
+  constructor(public auth: AuthService, private router: Router) {
+    const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+    this.isLoggedIn = new BehaviorSubject(isLoggedIn);
+  }
+  loginStatus: boolean = false;
   ngOnInit(): void {
     this.auth.isLoggedIn.subscribe((status) => {
       this.loginStatus = status;
     });
   }
   login() {
-    this.auth.login();
+    localStorage.setItem('loggedIn', 'true');
+    this.isLoggedIn.next(true);
+    // this.router.navigate(['/login']);
   }
+
   logout() {
-    this.auth.logout();
-  } 
+    // logic
+    localStorage.setItem('loggedIn', 'false');
+    this.isLoggedIn.next(false);
+  }
 
 }
