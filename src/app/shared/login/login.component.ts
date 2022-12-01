@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup } from '@angular/forms';
-import { Router, NavigationExtras } from '@angular/router';
+import { Router} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
 @Component({
@@ -25,7 +25,11 @@ export class LoginComponent implements OnInit {
     })
   }
   login(username: any, password: any) {
-    this.auth.login(username, password);
+    this.auth.login(username, password)
+      
+  }
+  logout(){
+    this.auth.logout();
   }
   
 }

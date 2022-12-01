@@ -5,20 +5,21 @@ import { HomeComponent } from './dashboardComponents/home/home.component';
 import { FormComponent } from './shared/form/form.component';
 import { LoginComponent } from './shared/login/login.component';
 import { UserManagementComponent } from './dashboardComponents/user-management/user-management.component';
-import { HomepageComponent } from './dumy/homepage/homepage.component';
+import { AuthgGuard } from './services/authg.guard';
+//import { HomepageComponent } from './dumy/homepage/homepage.component';
 const routes: Routes = [
 
   {
-    path: '' , component: HomeComponent
+    path: 'home' , component: HomeComponent , canActivate: [AuthgGuard]
   },
   {
-    path: 'form' , component: FormComponent 
+    path: 'form' , component: FormComponent , canActivate: [AuthgGuard]
   },
   {
-    path: 'user-management' , component: UserManagementComponent
+    path: 'user-management' , component: UserManagementComponent , canActivate: [AuthgGuard]
   },
   {
-    path: 'login' , component: LoginComponent
+    path: '' , component: LoginComponent
   }
 ];
 

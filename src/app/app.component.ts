@@ -7,9 +7,9 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   title = 'dynamicForm';
-  
- constructor(private auth:AuthService){
-  this.auth.getAuthStatus();
- }
+  isLoggedIn: any;
+  constructor(private auth: AuthService) {
+    this.isLoggedIn = this.auth.getAuthStatus();
+  }
 
 }

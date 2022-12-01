@@ -6,25 +6,27 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  baseUrl = 'https://reqres.in/';
+  //baseUrl = 'https://reqres.in/api';
+  baseUrl = 'https://retoolapi.dev/G0JfCi'
   public isLoggedIn: BehaviorSubject<boolean>;
 
   constructor(private router: Router, private http: HttpClient) {
-     const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
-     this.isLoggedIn = new BehaviorSubject(isLoggedIn);
+    const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+    this.isLoggedIn = new BehaviorSubject(isLoggedIn);
   }
   login(username: any, password: any) {
     sessionStorage.setItem("isLoggedIn", "true")
     return this.http.post<any>(this.baseUrl +
-      "api/login", { "username": username, "password": password }).subscribe(
+      "/login", { "username": username, "password": password }).subscribe(
         (token) => {
           if (token) {
             console.log(token);
             // localStorage.setItem('loggedIn', 'true');
-             this.isLoggedIn.next(true);
+            this.isLoggedIn.next(true);
             //  sessionStorage.setItem("isLoggedIn", "true")
             //this.isLoggedIn = true;
             this.router.navigate(['/form']);
+           
 
           }
         }
@@ -40,4 +42,19 @@ export class AuthService {
     }
     return false;
   }
+  // logout() {
+  //   var token = sessionStorage.getItem("token");
+  //   const headers = new HttpHeaders()
+  //     .set('content-type', 'application/json')
+  //     .set('Accept', '*/*',)
+  //     .set('Authorization', 'Token ' + token)
+  //     .set('Connection', 'keep-alive');
+
+  //   return this.http.post<any>(this.baseUrl + "/logout", { headers: headers });
+  // }
+  logout(): void {
+    this.isLoggedIn.next(false);
+       localStorage.removeItem('isLoggedIn'); 
+    }
+
 }

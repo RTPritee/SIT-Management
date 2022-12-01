@@ -1,10 +1,7 @@
-
-
-<div>
+<div *ngIf="isLoggedIn">
   <app-navigation></app-navigation>
 </div>
-<br><br><br><br>
-<div>
+<div *ngIf="!isLoggedIn">
   <div>
     <router-outlet></router-outlet>
   </div>

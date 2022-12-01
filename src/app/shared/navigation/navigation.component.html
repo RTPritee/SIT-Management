@@ -36,7 +36,7 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" [routerLink]="['/']"
+            <a class="nav-link active" aria-current="page" [routerLink]="['/home']"
               >Home</a
             >
           </li>
@@ -70,23 +70,23 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a
               *ngIf="!(auth.isLoggedIn | async)"
               (click)="login()"
               class="nav-link active"
               aria-current="page"
-              [routerLink]="['/login']"
+              [routerLink]="['/']"
               >Login</a
             >
-          </li>
+          </li> -->
           <li class="nav-item">
             <a
-              *ngIf="auth.isLoggedIn | async"
+              
               (click)="logout()"
               class="nav-link active"
               aria-current="page"
-              [routerLink]="['/login']"
+              [routerLink]="['/']"
               >Logout</a
             >
           </li>
