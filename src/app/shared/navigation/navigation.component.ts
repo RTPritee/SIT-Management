@@ -19,16 +19,20 @@ export class NavigationComponent implements OnInit {
       this.loginStatus = status;
     });
   }
-  login() {
-    localStorage.setItem('loggedIn', 'true');
-    this.isLoggedIn.next(true);
-    // this.router.navigate(['/login']);
-  }
+  // login() {
+  //   localStorage.setItem('loggedIn', 'true');
+  //   this.isLoggedIn.next(true);
+  //   // this.router.navigate(['/login']);
+  // }
 
-  logout() {
-    // logic
-    localStorage.setItem('loggedIn', 'false');
-    this.isLoggedIn.next(false);
+  // logout() {
+  //   // logic
+  //   localStorage.setItem('loggedIn', 'false');
+  //   this.isLoggedIn.next(false);
+  // }
+
+  logout(){
+    sessionStorage.setItem("isLoggedIn","false")
   }
 
 }

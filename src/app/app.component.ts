@@ -7,9 +7,26 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   title = 'dynamicForm';
-  isLoggedIn: any;
+  isLoggedIn= false ;
   constructor(private auth: AuthService) {
-    this.isLoggedIn = this.auth.getAuthStatus();
+    // let temp = this.auth.getAuthStatus();
+    let temp = sessionStorage.getItem("isLoggedIn")
+    // console.log("temp " + temp);
+    
+    if(temp?.match( "true")){
+      this.isLoggedIn = true;
+      console.log("matched true");
+      
+    }
+    if(temp?.match("false")){
+      this.isLoggedIn = false
+      console.log("matched false");
+      
+      
+    }
+    
+    console.log("isLoggedIn: "+ this.isLoggedIn);
+    
   }
 
 }

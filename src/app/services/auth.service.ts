@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 export class AuthService {
   //baseUrl = 'https://reqres.in/api';
   baseUrl = 'https://retoolapi.dev/G0JfCi'
+ //baseUrl ='172.16.213.108:8000'
   public isLoggedIn: BehaviorSubject<boolean>;
 
   constructor(private router: Router, private http: HttpClient) {
@@ -22,12 +23,13 @@ export class AuthService {
           if (token) {
             console.log(token);
             // localStorage.setItem('loggedIn', 'true');
-            this.isLoggedIn.next(true);
-            //  sessionStorage.setItem("isLoggedIn", "true")
+            // this.isLoggedIn.next(true);
+             sessionStorage.setItem("isLoggedIn", "true")
+              
             //this.isLoggedIn = true;
-            this.router.navigate(['/form']);
+            //this.router.navigate(['/form']);
            
-
+            //*ngIf="isLoggedIn"
           }
         }
       )
@@ -37,6 +39,8 @@ export class AuthService {
   }
   getAuthStatus() {
     var loginStatus = sessionStorage.getItem("isLoggedIn");
+    console.log(loginStatus);
+    
     if (loginStatus == "true") {
       return true
     }
@@ -52,9 +56,14 @@ export class AuthService {
 
   //   return this.http.post<any>(this.baseUrl + "/logout", { headers: headers });
   // }
-  logout(): void {
-    this.isLoggedIn.next(false);
-       localStorage.removeItem('isLoggedIn'); 
-    }
+//   logout(): void {
+//     this.isLoggedIn.next(false);
+//        localStorage.removeItem('isLoggedIn'); 
+//     }
 
+// }
+
+logout(){
+  sessionStorage.setItem("isLoggedIn","false")
+}
 }

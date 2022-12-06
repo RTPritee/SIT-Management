@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   }
   login(username: any, password: any) {
     this.auth.login(username, password)
-      
+    this.router.navigate(['/home']);
   }
   logout(){
     this.auth.logout();

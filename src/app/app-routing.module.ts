@@ -8,7 +8,6 @@ import { UserManagementComponent } from './dashboardComponents/user-management/u
 import { AuthgGuard } from './services/authg.guard';
 //import { HomepageComponent } from './dumy/homepage/homepage.component';
 const routes: Routes = [
-
   {
     path: 'home' , component: HomeComponent , canActivate: [AuthgGuard]
   },
